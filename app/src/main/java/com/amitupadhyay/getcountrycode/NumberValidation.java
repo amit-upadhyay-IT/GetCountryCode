@@ -3,6 +3,7 @@ package com.amitupadhyay.getcountrycode;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,7 +20,7 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
-public class NumberValidation extends ToolbarActivity {
+public class NumberValidation extends AppCompatActivity {
 
     private Spinner mCountryCode;
     private EditText mPhone;
@@ -52,7 +53,6 @@ public class NumberValidation extends ToolbarActivity {
         catch (Exception e) {
             // ignored
         }
-
         return new HashSet<>();
     }
 
@@ -60,7 +60,7 @@ public class NumberValidation extends ToolbarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.number_validation);
-        setupToolbar(false);
+        //setupToolbar(false);
 
         mCountryCode = (Spinner) findViewById(R.id.phone_cc);
         mPhone = (EditText) findViewById(R.id.phone_number);
@@ -91,7 +91,6 @@ public class NumberValidation extends ToolbarActivity {
             }
         });
 
-
         // FIXME this doesn't consider creation because of configuration change
         Phonenumber.PhoneNumber myNum = getMyNumber(this);
         if (myNum != null) {
@@ -110,10 +109,7 @@ public class NumberValidation extends ToolbarActivity {
             cc.countryCode = util.getCountryCodeForRegion(regionCode);
             mCountryCode.setSelection(ccList.getPositionForId(cc));
         }
-
-
     }
-
 
     /** Returns the (parsed) number stored in this device SIM card. */
     @SuppressLint("HardwareIds")
@@ -127,5 +123,4 @@ public class NumberValidation extends ToolbarActivity {
             return null;
         }
     }
-
 }
