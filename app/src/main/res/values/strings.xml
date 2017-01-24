@@ -6,4 +6,11 @@
     <string name="hint_validation_number">Your number</string>
     <string name="hint_validation_name">Your name</string>
     <string name="button_validate">Register</string>
+    <string name="msg_no_name">Please insert a name.</string>
+    <string name="msg_invalid_number">Please insert a valid phone number</string>
+    <string name="warn_invalid_number">Please enter a valid phone number</string>
+    <string name="title_passphrase">Password</string>
+    <string name="msg_validation_canceled">verification canceled</string>
+    <string name="msg_validating_phone">Requesting registratoin</string>
+    <string name="msg_initializing">Registering to the network</string>
 </resources>

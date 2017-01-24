@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msg_invalid_number">Please insert a valid phone number</string>
+    <string name="warn_invalid_number">Please enter a valid phone number</string>
+    <string name="title_passphrase">Password</string>
+    <string name="msg_validation_canceled">verification canceled</string>
+    <string name="msg_validating_phone">Requesting registratoin</string>
+    <string name="msg_initializing">Registering to the network</string>
+</resources>

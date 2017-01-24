@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by aupadhyay on 1/24/17.
@@ -77,7 +78,7 @@ public class CountryCodesAdapter extends BaseAdapter {
         CountryCode cc = new CountryCode();
         cc.regionCode = regionCode;
         cc.countryCode = PhoneNumberUtil.getInstance().getCountryCodeForRegion(regionCode);
-        //cc.regionName = NumberValidator.getRegionDisplayName(regionCode, Locale.getDefault());
+        cc.regionName = getRegionDisplayName(regionCode, Locale.getDefault());
         mData.add(cc);
     }
 
@@ -167,5 +168,12 @@ public class CountryCodesAdapter extends BaseAdapter {
         textView.setText(text);
 
         return view;
+    }
+
+    /** Returns the localized region name for the given region code. */
+    public static String getRegionDisplayName(String regionCode, Locale language) {
+        return (regionCode == null || regionCode.equals("ZZ") ||
+                regionCode.equals(PhoneNumberUtil.REGION_CODE_FOR_NON_GEO_ENTITY))
+                ? "" : new Locale("", regionCode).getDisplayCountry(language);
     }
 }
