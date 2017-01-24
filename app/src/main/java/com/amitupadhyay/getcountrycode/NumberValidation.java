@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.amitupadhyay.getcountrycode.CountryCodesAdapter.CountryCode;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
@@ -20,7 +21,7 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
-public class NumberValidation extends AppCompatActivity {
+public class NumberValidation extends AppCompatActivity implements View.OnClickListener {
 
     private Spinner mCountryCode;
     private EditText mPhone;
@@ -65,6 +66,8 @@ public class NumberValidation extends AppCompatActivity {
         mCountryCode = (Spinner) findViewById(R.id.phone_cc);
         mPhone = (EditText) findViewById(R.id.phone_number);
         mValidateButton = (Button) findViewById(R.id.button_validate);
+
+        mValidateButton.setOnClickListener(this);
 
         // populate country codes
         final CountryCodesAdapter ccList = new CountryCodesAdapter(this,
@@ -122,5 +125,11 @@ public class NumberValidation extends AppCompatActivity {
         catch (Exception e) {
             return null;
         }
+    }
+
+    @Override
+    public void onClick(View view) {
+        String the_country_code = mCountryCode.getSelectedItem().toString();
+        Toast.makeText(this, the_country_code, Toast.LENGTH_SHORT).show();
     }
 }
