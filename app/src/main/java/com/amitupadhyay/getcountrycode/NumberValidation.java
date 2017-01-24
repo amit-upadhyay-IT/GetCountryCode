@@ -32,10 +32,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class NumberValidation extends ToolbarActivity {
+
     static final String TAG = NumberValidation.class.getSimpleName();
-
-    public static final String PARAM_FROM_INTERNAL = "org.kontalk.internal";
-
 
     private EditText mNameText;
     private Spinner mCountryCode;
@@ -95,7 +93,6 @@ public class NumberValidation extends ToolbarActivity {
         mHandler = new Handler();
 
         final Intent intent = getIntent();
-        mFromInternal = intent.getBooleanExtra(PARAM_FROM_INTERNAL, false);
 
         mNameText = (EditText) findViewById(R.id.name);
         mCountryCode = (Spinner) findViewById(R.id.phone_cc);
@@ -164,7 +161,7 @@ public class NumberValidation extends ToolbarActivity {
             }
         });
     }
-
+    
     @Override
     protected void onStop() {
         super.onStop();
@@ -177,6 +174,7 @@ public class NumberValidation extends ToolbarActivity {
                 mProgress.dismiss();
         }
     }
+
 
     void keepScreenOn(boolean active) {
         if (active)
