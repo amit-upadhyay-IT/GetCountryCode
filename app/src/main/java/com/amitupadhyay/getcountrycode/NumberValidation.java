@@ -31,7 +31,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class NumberValidation extends AccountAuthenticatorActionBarActivity {
+public class NumberValidation extends ToolbarActivity {
     static final String TAG = NumberValidation.class.getSimpleName();
 
     public static final String PARAM_FROM_INTERNAL = "org.kontalk.internal";
@@ -166,22 +166,6 @@ public class NumberValidation extends AccountAuthenticatorActionBarActivity {
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle state) {
-        super.onSaveInstanceState(state);
-        state.putString("name", mName);
-        state.putString("phoneNumber", mPhoneNumber);
-
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
-        mName = savedInstanceState.getString("name");
-        mPhoneNumber = savedInstanceState.getString("phoneNumber");
-    }
-
-    @Override
     protected void onStop() {
         super.onStop();
         keepScreenOn(false);
@@ -193,16 +177,6 @@ public class NumberValidation extends AccountAuthenticatorActionBarActivity {
                 mProgress.dismiss();
         }
     }
-
-
-
-    @Override
-    protected void onUserLeaveHint() {
-        keepScreenOn(false);
-        if (mProgress != null)
-            mProgress.cancel();
-    }
-
 
     void keepScreenOn(boolean active) {
         if (active)
