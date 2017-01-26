@@ -102,7 +102,7 @@ public class NumberValidation extends AppCompatActivity implements View.OnClickL
             if (cc.regionCode == null)
                 cc.regionCode = util.getRegionCodeForCountryCode(myNum.getCountryCode());
             mCountryCode.setSelection(ccList.getPositionForId(cc));
-            mPhone.setText(String.valueOf(myNum.getNationalNumber()));
+            //mPhone.setText(String.valueOf(myNum.getNationalNumber()));
         }
         else {
             final TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
