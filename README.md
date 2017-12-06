@@ -35,7 +35,7 @@ public class YourCountryCodesAdapter extends AbstractCountryCodesAdapter{
     }
 }
 ```
-#  [ Fork ]
+#  Example Pic
 
 ![N|Solid](https://i.stack.imgur.com/zu3w7.png)
 
